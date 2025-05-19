@@ -55,7 +55,7 @@
     <body>
         <div class="form-container">
             <h2>Registration Form</h2>
-            <form>
+            <form id="Form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" placeholder="Enter your name" required>
 
@@ -82,6 +82,24 @@
                 <button type="submit" class="submit-btn"><b>Submit</b></button>
             </form>
         </div>
+        <script>
+            document.getElementById('Form').addEventListener('submit', function (event) {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    dob: document.getElementById('dob').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    gender: document.getElementById('gender').value,
+                    address: document.getElementById('address').value
+                };
+
+                console.log('Data: ', formData);
+
+                alert('Form data logged to console! Check browser developer tools (F12).')
+                this.reset();
+
+            });
+        </script>
     </body>
 
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e6f0ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .sidebar {
+            height: 200vh;
+            background-color: white;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar .nav-link {
+            color: #333;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar .nav-link.active,
+        .sidebar .nav-link:hover {
+            background-color: #e0f0ff;
+            font-weight: 500;
+        }
+
+        .profile {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .profile img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .info-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .balance {
+            font-size:100px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar p-3">
+                <div class="profile">
+                    <img src="./profile.png" alt="Profile" />
+                    <p class="mt-2 mb-0">My Profile</p>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#">Dashboard</a>
+                    <a class="nav-link" href="#">Inbox</a>
+                    <a class="nav-link" href="#">Send</a>
+                    <a class="nav-link" href="#">Draft</a>
+                    <a class="nav-link" href="#">Apps</a>
+                    <a class="nav-link" href="#">Project</a>
+                    <a class="nav-link" href="#">Notes</a>
+                    <a class="nav-link" href="#">Favorite</a>
+                    <a class="nav-link" href="#">Setting</a>
+                </nav>
+            </div>
+
+            <div class="col-md-10 main-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="form-control w-50" placeholder="Search something" />
+                    <div>
+                        <i class="bi bi-bell me-3"></i>
+                        <i class="bi bi-gear me-3"></i>
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="card p-3">
+                            <h6>Income</h6>
+                            <img src="./bargraph.png" alt="Income Graph" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3 mb-auto">
+                            <h5>Balance</h5>
+                            <div class="balance">$ 15,000</div>
+                            <button class="btn btn-outline-primary btn-sm mt-2">See History</button>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-1">
+                    <div class="col-md-4">
+                        <div class="card p-3">
+                            <h6>Growth</h6>
+                            <img src="./Distribution.png" alt="Growth Graph" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3">
+                            <h6>Expense</h6>
+                            <img src="./Average Engagement.png" alt="Expense Chart" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-3">
+                            <h6>Most Viewed Item</h6>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between align-items-center p-1">Item 01 <button class="btn btn-sm btn-primary ms-2">View</button></li>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Item 02 <button class="btn btn-sm btn-primary ms-2">View</button></li>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Item 03 <button class="btn btn-sm btn-primary ms-2">View</button></li>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Item 04 <button class="btn btn-sm btn-primary ms-2">View</button></li>
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-primary btn-sm">View All</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoices & Messages -->
+                <div class="row g-4 mt-1">
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h6>Invoices</h6>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between align-items-center p-1">Invoice 01/November/1245/40 <button
+                                        class="btn btn-sm btn-primary ms-2">View</button></li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Invoice 02/November/1238/70 <button
+                                        class="btn btn-sm btn-primary ms-2">View</button></li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Invoice 03/November/2124/90 <button
+                                        class="btn btn-sm btn-primary ms-2">View</button></li>
+                                <li class="d-flex justify-content-between align-items-center p-1" >Invoice 04/November/1245/10 <button
+                                        class="btn btn-sm btn-primary ms-2">View</button></li>
+                                <li class="d-flex justify-content-between align-items-center p-1">Invoice 05/November/2134/70 <button
+                                        class="btn btn-sm btn-primary ms-2">View</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3 pb-">
+                            <h6>Messages</h6>
+                            <ul class="list-unstyled" style="font-size: 20px;">
+                                <li><strong>Johnson, Mark</strong> - Invoice Nov 1 - Success</li>
+                                <li><strong>Adelia, Nadia</strong> - Project Assignment - Interior Design</li>
+                                <li><strong>Amelia, Laura</strong> - Meeting Schedule - Presentation Material</li>
+                                <li><strong>Johnson, Mark</strong> - Invoice Nov 5 - Success</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons CDN (optional for icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</body>
+
+</html>

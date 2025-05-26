@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">ShopEase</div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Cart</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Books</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <div class="cards-container">
+            <div class="card">
+                <img src="" alt="Product 1">
+                <h4>Smartwatch</h4>
+                <p>Track your fitness with style.</p>
+                <p>⭐⭐⭐⭐</p>
+                <button class="btn">View Product</button>
+            </div>
+            <div class="card">
+                <img src="" alt="Product 2">
+                <h4>Wireless Headphones</h4>
+                <p>Noise cancelling and crystal clear sound.</p>
+                <p>⭐⭐⭐⭐⭐</p>
+                <button class="btn">View Product</button>
+            </div>
+            <div class="card">
+                <img src="" alt="Product 3">
+                <h4>Backpack</h4>
+                <p>Spacious and stylish for everyday use.</p>
+                <p>⭐⭐⭐⭐☆</p>
+                <button class="btn">View Product</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        
+        const toggleBtn = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

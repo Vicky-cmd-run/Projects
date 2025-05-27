@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+body{
+    height: 100vh;
+    margin:0;
+    background: linear-gradient(135deg, #f6f9fc, #e0f7fa);
+}
+
+footer{
+    text-align: center;
+}
+
+a > span{
+    font-family:"Poppins", sans-serif;
+    font-weight: 100;
+}
+
+.button:hover{
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+    background: linear-gradient(blue,darkblue);
+}
+
+.cart-btn:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    background: linear-gradient(blue,darkblue);
+    color: white;
+}
+
+.product-card {
+    animation: slideIn 1s ease forwards;
+    border-radius: 15px;
+    transition: transform 0.5s ease-in-out, box shawdow 2s;
+}
+  
+.product-card:hover {
+    animation:none;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+  
+
+@keyframes slideIn {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

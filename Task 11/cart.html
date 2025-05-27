@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - ShopEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+        a > span{
+            font-family:"Poppins", sans-serif;
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light">
+    <div class="wrapper d-flex flex-column min-vh-100">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="index.html"><span>ShopEase</span></a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="cart.html">Cart</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container py-5 flex-grow-1">
+            <h2 class="mb-4 text-center">Your Cart</h2>
+            <div id="cart-items" class="row"></div>
+            <div class="text-end mt-4">
+                <h4 id="total-price">Total: $0.00</h4>
+            </div>
+        </div>
+        
+        <footer class="text-center py-3 bg-secondary text-light mt-5">
+            <p>&copy; 2025 ShopUniq. All rights reserved.</p>
+        </footer>
+    
+    </div>
+    
+    <script>
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItemsContainer.innerHTML = '';
+
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center">Your cart is empty.</p>';
+                totalPriceElement.textContent = 'Total: $0.00';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                total += parseFloat(item.price);
+
+                const card = document.createElement('div');
+                card.className = 'col-md-4 mb-4';
+                card.innerHTML = `
+          <div class="card h-100 text-dark">
+            <img src="${item.image}" class="card-img-top" alt="${item.title}">
+            <div class="card-body">
+              <h5 class="card-title">${item.title}</h5>
+              <p class="card-text">$${item.price}</p>
+              <button class="btn btn-danger" onclick="removeFromCart(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+                cartItemsContainer.appendChild(card);
+            });
+
+            totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        window.onload = loadCart;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
